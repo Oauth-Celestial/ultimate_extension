@@ -1,6 +1,7 @@
 part of '../ultimate_extension.dart';
 
 extension JsonToBase64Extension<T> on Map<String, T> {
+  /// Convert the map to a JSON string and then encode it to Base64.
   String toJsonAndEncode() {
     // Convert the JSON data to a string
     String jsonString = jsonEncode(this);
@@ -11,6 +12,7 @@ extension JsonToBase64Extension<T> on Map<String, T> {
     return base64String;
   }
 
+  /// Convert the map to a pretty-printed JSON string.
   String prettyPrint() {
     JsonEncoder encoder =
         const JsonEncoder.withIndent('  '); // Use two spaces for indentation
@@ -24,10 +26,13 @@ extension JsonToBase64Extension<T> on Map<String, T> {
     return jsonEncode(this).replaceAll('"', '\\"');
   }
 
+  /// Check if the map contains a specified key.
   bool containsKey({required String keyName}) {
     List<String> mapKeys = keys.toList();
     return mapKeys.contains(keyName);
   }
+
+  /// Convert the map to a JSON string.
 
   String toStringFromJson() {
     String jsonString = jsonEncode(this);

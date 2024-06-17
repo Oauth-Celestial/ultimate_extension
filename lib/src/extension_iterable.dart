@@ -68,7 +68,7 @@ extension IteratableExtension<T> on Iterable<T> {
         return IndexValue<T>(itemIndex: index, data: toList()[index]);
       }
     }
-    return null;
+    return IndexValue<T>(itemIndex: -1, data: null);
   }
 
   bool containsAll(Iterable<T> elements) {

@@ -1,6 +1,8 @@
 part of '../ultimate_extension.dart';
 
 extension ImageTool on ImageProvider {
+  /// Retrieves bytes from the `ImageProvider` a
+  /// synchronously using a specified `BuildContext` and `ImageByteFormat`
   Future<Uint8List?> getBytes(BuildContext context,
       {ImageByteFormat format = ImageByteFormat.rawRgba}) async {
     final imageStream = resolve(createLocalImageConfiguration(context));

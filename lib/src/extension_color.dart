@@ -1,6 +1,7 @@
 part of '../ultimate_extension.dart';
 
 extension ColorHelper on Color {
+  ///To create a Color object from a hexadecimal string:
   static Color fromHex(String hexString) {
     final buffer = StringBuffer();
     if (hexString.length == 6 || hexString.length == 7) buffer.write('ff');
@@ -15,6 +16,7 @@ extension ColorHelper on Color {
       '${green.toRadixString(16).padLeft(2, '0')}'
       '${blue.toRadixString(16).padLeft(2, '0')}';
 
+  /// To generate a random Color:
   static Color getRandomColor() {
     final Random random = Random();
     final int r = random.nextInt(256);

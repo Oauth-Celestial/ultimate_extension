@@ -1,7 +1,7 @@
 name: ultimate_extension
-description: "A new Flutter package project."
+description: "Ultimate_extension provides powerful and easy-to-use extensions for Dart collections and objects. This package extends List, Iterable, Map, and Object with various utilities including random selection, copying, partitioning, JSON handling, and more."
 version: 0.0.1
-homepage:
+repository: https://github.com/Oauth-Celestial/ultimate_extension
 
 environment:
   sdk: '>=3.3.1 <4.0.0'

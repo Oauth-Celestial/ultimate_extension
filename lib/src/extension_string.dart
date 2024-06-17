@@ -294,13 +294,6 @@ extension StringHelper on String {
 }
 
 extension NullableString on String? {
-  String? defaultValue(String defaultValue) {
-    if (this != null) {
-      return this;
-    }
-    return defaultValue;
-  }
-
   String? get removeOuterWhiteSpace {
     if (this?.isEmpty ?? false) {
       return this;
