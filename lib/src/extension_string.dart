@@ -291,16 +291,22 @@ extension StringHelper on String {
 
     return includeSymbol ? '$symbol$formatted' : formatted;
   }
+
+  // use this method while comparing upper and lowercase strings
+  //compares two string by removing white spaces and converting to lowercase.
+  bool amISame({required String to}) {
+    return toLowerCase().trim() == to.toLowerCase().trim();
+  }
+
+  String get removeOuterWhiteSpace {
+    if (isEmpty) {
+      return this;
+    }
+    return trim();
+  }
 }
 
 extension NullableString on String? {
-  String? get removeOuterWhiteSpace {
-    if (this?.isEmpty ?? false) {
-      return this;
-    }
-    return this!.trim();
-  }
-
   String displayIfNull({String displayString = "-"}) {
     if (isNull) {
       return displayString;

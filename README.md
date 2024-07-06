@@ -1,3 +1,6 @@
+[![pub package](https://img.shields.io/pub/v/ultimate_extension.svg)](https://pub.dev/packages/ultimate_extension)
+[![pub points](https://img.shields.io/pub/points/ultimate_extension?color=2E8B57&label=pub%20points)](https://pub.dev/packages/ultimate_extension/score)
+[![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 # ultimate_extension
 
 Ultimate_extension provides powerful and easy-to-use extensions for Dart collections and objects. This package extends `List`, `Iterable`, `Map`, and Object with various utilities including random selection, copying, partitioning, JSON handling, and more.
@@ -13,6 +16,7 @@ Ultimate_extension provides powerful and easy-to-use extensions for Dart collect
     - [Color Extensions](#color-extensions )
     - [Iterable Extensions](#iterable-extensions)
     - [Map Extensions ](#map-extensions )
+    - [Num Extensions ](#num-extensions )
     - [Other Extensions ](#other-extensions )
  
 
@@ -72,6 +76,9 @@ Similar extensions are:
 - **`isValidUrl`**: Check if a string is a valid URL.
 - **`isNumericOnly`**: Check if a string consists only of numeric characters.
 - **`isAlphabetOnly`**: Check if a string consists only of alphabetic characters.
+
+- **`amISame`**: Checks if the current string is the same as another string, ignoring case and leading/trailing whitespace.
+
 
 ### Conversion
 - **`toBool()`**: Convert a string to a boolean value.
@@ -224,6 +231,27 @@ characters.
 - **`toStringFromJson`**: Convert the map to a JSON string.
 
 - **`forEachEntry`**: Iterate over the map's entries and apply a function.  
+
+
+## Num Extensions
+
+Calculate percentage change
+
+```dart
+  num investedValue = 75;
+  num currentValue = 50;
+
+  double returns = currentValue.percentageChangeFrom(original: investedValue);
+  print(returns); // -33.33333
+```
+- **`toCurrency`**: Converts the number to a currency format string.
+- **`roundToDecimalPlaces`**: Rounds the number to a specified number of decimal places.
+- **`toRadians`**: Converts the number from degrees to radians.
+- **`toDegrees`**: Converts the number from radians to degrees.
+- **`square`**: Returns the square of the number.
+- **`cube`**: Returns the cube of the number.
+- **`absolute`**: Returns the absolute value of the number.
+- **`toPercentage`**: Converts the number to a percentage string with a specified number of decimal places.
 
 
 

@@ -50,12 +50,10 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   Color backgroundColor = ColorHelper.fromHex("#aabbcc");
   String hexcode = Colors.red.toHex();
-  void _incrementCounter() {
-    setState(() {
-      print(hexcode);
+  void _incrementCounter() {}
 
-      _counter++;
-    });
+  printHelloWorld() {
+    print("helloWorld");
   }
 
   @override
