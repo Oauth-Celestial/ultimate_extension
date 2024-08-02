@@ -50,10 +50,15 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   Color backgroundColor = ColorHelper.fromHex("#aabbcc");
   String hexcode = Colors.red.toHex();
-  void _incrementCounter() {}
-
-  printHelloWorld() {
-    print("helloWorld");
+  void _incrementCounter() {
+    for (int i = 0; i < 1000; i++) {
+      UltimateExtension().debounce(
+          id: "Testing",
+          delay: Duration(seconds: 1),
+          action: () {
+            print("I am the debounce ${i} ");
+          });
+    }
   }
 
   @override

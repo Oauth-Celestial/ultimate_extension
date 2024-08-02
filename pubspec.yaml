@@ -1,6 +1,6 @@
 name: ultimate_extension
-description: "Ultimate_extension enhances Dart collections and objects with utilities like random selection, copying, partitioning, and JSON handling, extending List, Iterable, Map, and Object for advanced data manipulation and simpler coding."
-version: 0.0.2
+description: "Ultimate_extension enhances Dart collections and objects with utilities for advanced data manipulation and simpler coding."
+version: 0.0.3
 repository: https://github.com/Oauth-Celestial/ultimate_extension
 
 environment:

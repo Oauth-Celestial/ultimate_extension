@@ -14,4 +14,25 @@ extension ObjectExtension on Object? {
   }
 
   void log() => devtools.log(toString());
+
+  /// Convert to build in data types
+  /// double data = "12344.5".tryConvertTo<double>();
+  tryConvertTo<T>() {
+    try {
+      return this as T;
+    } catch (e) {
+      // Handle type casting failure by converting to the desired type if possible
+      if (T == String) {
+        return toString() as T;
+      } else if (T == int) {
+        return int.tryParse(toString()) as T;
+      } else if (T == double) {
+        return double.tryParse(toString()) as T;
+      } else if (T == bool) {
+        return (toString().toLowerCase() == 'true') as T;
+      } else {
+        throw UnsupportedError('Cannot cast $this to $T');
+      }
+    }
+  }
 }

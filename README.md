@@ -11,6 +11,7 @@ Ultimate_extension provides powerful and easy-to-use extensions for Dart collect
 - [Ultimate Extension](#ultimate_extension)
  
   - [Getting started](#getting-started)
+  - [Most Used Extension](#most-used-extension)
   - [Extensions](#extensions)
     - [String Extensions](#string-extensions )
     - [Color Extensions](#color-extensions )
@@ -37,6 +38,19 @@ dependencies:
 ```dart
 import 'package:ultimate_extension/ultimate_extension.dart';
 ```
+
+## **Most Used Extensions**
+
+### **Extension on Object**
+
+- **`tryConvertTo`**: Changing datatypes can be one of the challenge we face during parsing which can lead to parsing issues if not handled correctly but no more you can use this method to convert the received type to desired data type even if the type receives is different currently it supports only build in data type 
+
+Example
+```dart 
+double data = "12344.5".tryConvertTo<double>();
+```
+
+
 
 
 ## **String Extensions**

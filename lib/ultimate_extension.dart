@@ -20,3 +20,4 @@ part 'src/extension_object.dart';
 part 'src/extension_string.dart';
 part 'src/extension_widget.dart';
 part 'src/extension_functions.dart';
+part 'src/ultimate_extension_manager.dart';

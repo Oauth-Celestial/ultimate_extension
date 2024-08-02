@@ -47,7 +47,7 @@ extension StringHelper on String {
       return true;
     }
 
-    // Check if the string represents a falsy value
+    // Check if the string represents a false value
     if (lowercaseStr == 'false' ||
         lowercaseStr == '0' ||
         lowercaseStr == 'no' ||
@@ -293,7 +293,7 @@ extension StringHelper on String {
   }
 
   // use this method while comparing upper and lowercase strings
-  //compares two string by removing white spaces and converting to lowercase.
+  //Checks if the current string is the same as another string, ignoring case and leading/trailing whitespace.
   bool amISame({required String to}) {
     return toLowerCase().trim() == to.toLowerCase().trim();
   }
