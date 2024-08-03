@@ -1,3 +1,7 @@
+## 0.0.3
+### CHANGES
+Fixed bugs and  Added new extensions.
+
 ## 0.0.2
 ### CHANGES
 Added new extensions.

@@ -50,14 +50,12 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   Color backgroundColor = ColorHelper.fromHex("#aabbcc");
   String hexcode = Colors.red.toHex();
-  void _incrementCounter() {
+  void _incrementCounter() async {
     for (int i = 0; i < 1000; i++) {
-      UltimateExtension().debounce(
+      UltimateExtension().throttle(
           id: "Testing",
-          delay: Duration(seconds: 1),
-          action: () {
-            print("I am the debounce ${i} ");
-          });
+          delay: Duration(seconds: 100),
+          action: () => yourMethod());
     }
   }
 
@@ -114,5 +112,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  yourMethod() {
+    print("Method called");
   }
 }

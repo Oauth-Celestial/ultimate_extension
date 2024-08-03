@@ -7,11 +7,9 @@ Ultimate_extension provides powerful and easy-to-use extensions for Dart collect
 
 
 ### Table of contents
-
-- [Ultimate Extension](#ultimate_extension)
  
   - [Getting started](#getting-started)
-  - [Most Used Extension](#most-used-extension)
+  - [Most Used Extensions Methods](#most-used-extensions-methods)
   - [Extensions](#extensions)
     - [String Extensions](#string-extensions )
     - [Color Extensions](#color-extensions )
@@ -39,20 +37,87 @@ dependencies:
 import 'package:ultimate_extension/ultimate_extension.dart';
 ```
 
-## **Most Used Extensions**
+## **Most Used Extensions Methods**
 
-### **Extension on Object**
+### **Debounce and Throttle**
 
-- **`tryConvertTo`**: Changing datatypes can be one of the challenge we face during parsing which can lead to parsing issues if not handled correctly but no more you can use this method to convert the received type to desired data type even if the type receives is different currently it supports only build in data type 
+**`Debounce`**:-
+
+Debouncing ensures only the last call to a method is executed if multiple calls happen in quick succession. Each call resets a timer, and the target method is only invoked when the timer completes without interruption.
+```dart
+ UltimateExtension().debounce(
+    id: "Debounce",
+    delay: Duration(seconds: 1),
+    action: () => yourMethod()
+  );
+````
+
+**`Throttling`**:-
+
+Throttling ensures that a method is called at most once within a specified time period. It prevents multiple calls by allowing only the first call to execute, and subsequent calls within the period are ignored until the period has elapsed.
+
+```dart 
+UltimateExtension().throttle(
+    id: "Throttle",
+    delay: Duration(seconds: 1),
+    action: () => yourMethod());
+    }
+```
+
+
+### **Object Extensions**
+
+- **`tryConvertTo`**: Changing datatypes can be one of the challenge we face during parsing  if not handled correctly but no more you can use ***tryConvertTo*** method to convert the received type to desired data type even if the type receives is different currently it supports only build in data type 
 
 Example
 ```dart 
 double data = "12344.5".tryConvertTo<double>();
 ```
 
+### **String Extensions**
+- **`amISame`**: Checks if the current string is the same as another string, ignoring case and leading/trailing whitespace.
 
+```dart
+bool isSame = "test".amISame(to: "TeST"); // true
+```
+- **`displayIfNull`**: Provide a default value for null strings.
 
+```dart 
+String display = null.displayIfNull(displayString: "N/A"); // N/A
 
+```
+### **Color Extensions**
+
+- **`ColorHelper.fromHex`**: Get Color from hexcode.
+
+``` dart
+Color backgroundColor = ColorHelper.fromHex("#aabbcc");
+```
+### **Iterable Extensions** 
+
+- **`getFirstElementWithIndex`**: gets the element along with its index.
+```dart 
+List<int> numbers = [1, 2, 3];
+IndexValue<int>? result = numbers.getFirstElementWithIndex((element) => element > 1);
+print(result?.itemIndex); // 1
+print(result?.data); // 2
+```
+### **Map Extensions**
+- **`prettyPrint`**: Convert the map to a pretty-printed JSON string.
+characters.
+
+```dart
+    Map<String, dynamic> data = {
+      "name": "John",
+      "email": "john@example.com",
+    };
+
+    print(data.prettyPrint());
+//{
+    //"name": "John",
+    //"email": "john@example.com"
+//}
+```
 ## **String Extensions**
 
 ### Currency Formatting
@@ -62,14 +127,6 @@ Format a string as currency:
 String currency = "1234567.89".formatCurrency(",", "₹", true); // ₹1,234,567.89
 
 String abbreviation = "12345678".toIndianAbbreviatedString(); // 1.23 Cr
-
-```
-
-## Default Values and Fallbacks
-Provide a default value for null strings:
-
-```dart 
-String display = null.displayIfNull(displayString: "N/A"); // N/A
 
 ```
 
@@ -90,8 +147,6 @@ Similar extensions are:
 - **`isValidUrl`**: Check if a string is a valid URL.
 - **`isNumericOnly`**: Check if a string consists only of numeric characters.
 - **`isAlphabetOnly`**: Check if a string consists only of alphabetic characters.
-
-- **`amISame`**: Checks if the current string is the same as another string, ignoring case and leading/trailing whitespace.
 
 
 ### Conversion
@@ -140,12 +195,6 @@ Similar extensions are:
 
 ### Color Extensions 
 
-Get Color from hexcode 
-
-``` dart
-Color backgroundColor = ColorHelper.fromHex("#aabbcc");
-```
-
 
 Get hexcode from color 
 
@@ -170,17 +219,6 @@ print(element); // 2
 element = numbers.getElementAt(-1);
 print(element); // 3
  ```
-
-Get First Element with Index
-
-some time we have a condition to get the element but then have to add another search for the index but no more you can achieve this with single method . If the value is not present it **return -1 in index and data is null**
-
-```dart 
-List<int> numbers = [1, 2, 3];
-IndexValue<int>? result = numbers.getFirstElementWithIndex((element) => element > 1);
-print(result?.itemIndex); // 1
-print(result?.data); // 2
-```
 
 Similar extensions are:
 
@@ -239,8 +277,6 @@ Map<String, dynamic> data = {
 Similar extensions are:
 
 - **`toJsonAndEncode`**: Convert the map to a JSON string and then encode it to Base64.
-- **`prettyPrint`**: Convert the map to a pretty-printed JSON string.
-characters.
 - **`containsKey`**: Check if the map contains a specified key.
 - **`toStringFromJson`**: Convert the map to a JSON string.
 
