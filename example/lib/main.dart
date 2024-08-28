@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
     for (int i = 0; i < 1000; i++) {
       UltimateExtension().throttle(
           id: "Testing",
-          delay: Duration(seconds: 100),
+          delay: Duration(seconds: 1),
           action: () => yourMethod());
     }
   }

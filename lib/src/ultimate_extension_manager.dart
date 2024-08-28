@@ -1,8 +1,8 @@
 part of '../ultimate_extension.dart';
 
 class UltimateExtension {
-  final Map<String, Timer> _debounceTimers = {};
-  final Map<String, bool> _throttleReadiness = {};
+  final Map<String, Timer> _debouncers = {};
+  final Map<String, ThrottleDataHolder> _throttles = {};
   UltimateExtension._();
   static final UltimateExtension _instance = UltimateExtension._();
 
@@ -16,27 +16,27 @@ class UltimateExtension {
       required Duration delay,
       required VoidCallback action}) {
     // Cancel any existing timer for this ID
-    _debounceTimers[id]?.cancel();
+    _debouncers[id]?.cancel();
     // Set a new timer for this ID
-    _debounceTimers[id] = Timer(delay, action);
+    _debouncers[id] = Timer(delay, action);
   }
 
   // Cancel debouncer by ID
   void cancelDebounce({required String id}) {
     // Cancel the timer associated with this ID
-    _debounceTimers[id]?.cancel();
+    _debouncers[id]?.cancel();
     // Remove the timer from the map
-    _debounceTimers.remove(id);
+    _debouncers.remove(id);
   }
 
   // Cancel all debouncers
   void cancelAllDebounce() {
     // Cancel all timers
-    for (var timer in _debounceTimers.values) {
+    for (var timer in _debouncers.values) {
       timer.cancel();
     }
     // Clear the map
-    _debounceTimers.clear();
+    _debouncers.clear();
   }
 
   // Throttle method
@@ -44,22 +44,46 @@ class UltimateExtension {
       {required String id,
       required Duration delay,
       required VoidCallback action}) {
-    if (_throttleReadiness[id] == true) return;
+    if (_throttles[id]?.shouldWait == true) {
+      _throttles[id]?.action = action;
+      return;
+    }
 
-    _throttleReadiness[id] = true;
+    timeFunction() {
+      if (_throttles[id]?.action == null) {
+        _throttles[id]?.shouldWait = false;
+      } else {
+        _throttles[id]?.action?.call();
+        _throttles[id]?.action = null;
+
+        Future.delayed(delay, timeFunction);
+      }
+    }
+
     action();
-    Future.delayed(delay, () => _throttleReadiness[id] = false);
+    _throttles[id] = ThrottleDataHolder(shouldWait: true);
+    Future.delayed(delay, timeFunction);
   }
 
   // Cancel throttler by ID
   void cancelThrottle({required String id}) {
     // Simply remove the ID from the readiness map
-    _throttleReadiness.remove(id);
+    _throttles.remove(id);
   }
 
   // Cancel all throttlers
   void cancelAllThrottle() {
     // Clear the readiness map
-    _throttleReadiness.clear();
+    _throttles.clear();
   }
+}
+
+class ThrottleDataHolder {
+  bool shouldWait;
+
+  VoidCallback? action;
+  ThrottleDataHolder({
+    this.shouldWait = false,
+    this.action,
+  });
 }
