@@ -1,7 +1,7 @@
 part of '../ultimate_extension.dart';
 
-extension FutureExtensions on Future<dynamic> {
-  Future<T> trackExecutionTime<T>(String label) async {
+extension FutureExtensions<T> on Future<T> {
+  Future<T> trackExecutionTime(String label) async {
     final startTime = DateTime.now();
     final result = await this;
     final endTime = DateTime.now();
@@ -9,26 +9,11 @@ extension FutureExtensions on Future<dynamic> {
     devtools.log('$label took $duration ms');
     return result;
   }
-}
 
-extension ThrottleFunction<T> on Function {
-  void Function() throttle(Duration delay) {
-    bool ready = true;
-    return () {
-      if (!ready) return;
-      ready = false;
-      Future.delayed(delay, () => ready = true);
-      this();
-    };
-  }
-}
-
-extension DebounceFunction<T> on Function {
-  void Function() debounce(Duration delay) {
-    Timer? timer;
-    return () {
-      if (timer?.isActive ?? false) timer?.cancel();
-      timer = Timer(delay, () => this());
-    };
+  Future<T> logExecution([String functionName = "Function"]) async {
+    print("$functionName started...");
+    final result = await this;
+    print("$functionName completed.");
+    return result;
   }
 }

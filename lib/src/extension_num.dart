@@ -36,6 +36,38 @@ extension IntExt on int {
     }
     return result.toString();
   }
+
+  String get ordinal {
+    if (this % 100 >= 11 && this % 100 <= 13) return '${this}th';
+    switch (this % 10) {
+      case 1:
+        return '${this}st';
+      case 2:
+        return '${this}nd';
+      case 3:
+        return '${this}rd';
+      default:
+        return '${this}th';
+    }
+  }
+
+  String get toByteUnits {
+    const units = ['B', 'KB', 'MB', 'GB', 'TB'];
+    var size = toDouble();
+    int unitIndex = 0;
+    while (size >= 1024 && unitIndex < units.length - 1) {
+      size /= 1024;
+      unitIndex++;
+    }
+    return '${size.toStringAsFixed(2)} ${units[unitIndex]}';
+  }
+
+  bool isDivisibleBy(int divisor) {
+    if (divisor == 0) throw ArgumentError('Divisor cannot be zero');
+    return this % divisor == 0;
+  }
+
+  bool get toBool => this != 0;
 }
 
 extension DoubleExtn on double {
@@ -48,14 +80,6 @@ extension DoubleExtn on double {
 }
 
 extension NumExt on num {
-  /* Text(
-              'Int Amount: ${amountInt.toCurrency(includeSymbol: true, symbol: '\$')}',
-              style: const TextStyle(fontSize: 24),
-            ),
-            Text(
-              'Double Amount: ${amountDouble.toCurrency(includeSymbol: true, symbol: '\$')}',
-              style: const TextStyle(fontSize: 24),
-            ),  */
   String toCurrency(
       {String separator = ',',
       String symbol = '',

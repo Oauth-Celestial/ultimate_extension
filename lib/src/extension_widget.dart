@@ -16,3 +16,18 @@ extension SeparatedIterable on Iterable<Widget> {
     return result;
   }
 }
+
+extension ExtensionWidget on Widget {
+  Widget shimmer(
+      {required bool isLoading,
+      AlignmentGeometry? begin,
+      AlignmentGeometry? end}) {
+    return isLoading
+        ? ShimmerWidget(
+            begin: begin,
+            end: end,
+            child: this,
+          )
+        : this;
+  }
+}

@@ -1,5 +1,6 @@
 library ultimate_extension;
 
+export 'widgets/shimmer_widget.dart';
 import 'dart:async';
 import 'dart:convert';
 
@@ -11,9 +12,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:developer' as devtools show log;
 
+import 'package:ultimate_extension/widgets/shimmer_widget.dart';
+
 part 'src/extension_color.dart';
 part 'src/extension_img.dart';
-part 'src/extension_int.dart';
+part 'src/extension_num.dart';
 part 'src/extension_iterable.dart';
 part 'src/extension_map.dart';
 part 'src/extension_object.dart';

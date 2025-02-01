@@ -214,12 +214,6 @@ Similar extensions are:
 
 ### Color Extensions
 
-Get hexcode from color
-
-``` dart
-String hexcode = Colors.red.toHex();
-```
-
 Get Random color
 
 ```dart

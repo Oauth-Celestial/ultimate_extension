@@ -13,11 +13,9 @@ extension ObjectExtension on Object? {
     return runtimeType;
   }
 
-  void log() => devtools.log(toString());
-
   /// Convert to build in data types
   /// double data = "12344.5".tryConvertTo<double>();
-  tryConvertTo<T>() {
+  T tryConvertTo<T>() {
     try {
       return this as T;
     } catch (e) {
