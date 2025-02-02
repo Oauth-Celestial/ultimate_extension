@@ -4,7 +4,7 @@
 
 # ultimate_extension
 
-Ultimate_extension provides powerful and easy-to-use extensions for Dart collections and objects. This package extends `List`, `Iterable`, `Map`, and Object with various utilities including random selection, copying, partitioning, JSON handling, and more.
+Ultimate Extension provides powerful and easy-to-use extensions for Dart collections and objects. This package extends List, Iterable, Map, and Object with a variety of extension methods, including random selection, copying, partitioning, JSON handling, and more. Whether you need enhanced collection utilities or simplified object manipulation, Ultimate Extension makes Dart programming more efficient.
 
 ### Table of contents
 

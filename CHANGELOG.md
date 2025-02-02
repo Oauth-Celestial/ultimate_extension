@@ -1,3 +1,11 @@
+## 0.0.5
+
+### CHANGES
+
+Resolved extensions bug and added shimmer widget extenison
+
+Updated code for latest flutter
+
 ## 0.0.4
 
 ### CHANGES

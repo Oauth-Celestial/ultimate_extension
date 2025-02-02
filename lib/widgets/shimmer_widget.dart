@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class ShimmerWidget extends StatefulWidget {
   final Widget child;
-  AlignmentGeometry? begin;
-  AlignmentGeometry? end;
+  final AlignmentGeometry? begin;
+  final AlignmentGeometry? end;
 
-  ShimmerWidget({required this.child, this.begin, this.end});
+  const ShimmerWidget({super.key, required this.child, this.begin, this.end});
 
   @override
   ShimmerWidgetState createState() => ShimmerWidgetState();

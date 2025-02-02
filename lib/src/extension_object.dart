@@ -5,6 +5,10 @@ extension ObjectExtension on Object? {
     return this == null;
   }
 
+  bool get isNotNull {
+    return this != null;
+  }
+
   int get getMemoryAddress {
     return identityHashCode(this);
   }

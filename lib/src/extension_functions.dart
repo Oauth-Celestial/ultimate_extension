@@ -9,11 +9,4 @@ extension FutureExtensions<T> on Future<T> {
     devtools.log('$label took $duration ms');
     return result;
   }
-
-  Future<T> logExecution([String functionName = "Function"]) async {
-    print("$functionName started...");
-    final result = await this;
-    print("$functionName completed.");
-    return result;
-  }
 }
