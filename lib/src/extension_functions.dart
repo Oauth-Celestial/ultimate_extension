@@ -6,7 +6,8 @@ extension FutureExtensions<T> on Future<T> {
     final result = await this;
     final endTime = DateTime.now();
     final duration = endTime.difference(startTime).inMilliseconds;
-    devtools.log('$label took $duration ms');
+    // devtools.log('$label took $duration ms');
+    UltimateLogger().logSuccess('$label took $duration ms');
     return result;
   }
 }

@@ -1,6 +1,6 @@
 name: ultimate_extension
 description: Ultimate_extension provides powerful extensions for Dart collections and objects, enabling advanced data manipulation and simpler coding."
-version: 0.0.5
+version: 1.0.0
 repository: https://github.com/Oauth-Celestial/ultimate_extension
 
 environment:
@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:

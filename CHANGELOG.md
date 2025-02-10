@@ -1,3 +1,9 @@
+## 1.0.0
+
+### CHANGES
+
+Added new date and widget extension
+
 ## 0.0.5
 
 ### CHANGES

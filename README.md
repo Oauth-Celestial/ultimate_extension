@@ -11,6 +11,8 @@ Ultimate Extension provides powerful and easy-to-use extensions for Dart collect
 - [Getting started](#getting-started)
 - [Most Used Extensions Methods](#most-used-extensions-methods)
 - [Extensions](#extensions)
+  - [Widget Methods](#widget-methods)
+  - [Date Extensions](#date-extensions)
   - [String Extensions](#string-extensions )
   - [Color Extensions](#color-extensions )
   - [Iterable Extensions](#iterable-extensions)
@@ -63,30 +65,119 @@ UltimateExtension().throttle(
     }
 ```
 
-### **Object Extensions**
+### **Widget Methods**
 
-- **`tryConvertTo`**: Changing datatypes can be one of the challenge we face during parsing  if not handled correctly but no more you can use ***tryConvertTo*** method to convert the received type to desired data type even if the type receives is different currently it supports only build in data type
-
-Example
+**`Shimmer`**:- No need for a separate loading widget anymore! Now, you can use the same widget to display a shimmer effect seamlessly.
 
 ```dart
-double data = "12344.5".tryConvertTo<double>();
+Container(
+  width: 100,
+  height: 100,
+  decoration: BoxDecoration(
+    color: Colors.red,
+    shape: BoxShape.circle,
+  ),
+).shimmer(isLoading: true);
+
 ```
+
+**`SizeProviderWidget`**: The SizeProviderWidget helps measure its child's dimensions in real time.
+
+```dart
+Expanded(
+  child: SizeProviderWidget(
+    builder: (context, size) {
+      return Container(
+        child: Text("${size.width} x ${size.height}"),
+      );
+    },
+  ),
+);
+
+```
+
+**`TypeWriterText`**: Displays text with a typewriter-style animated effect.
+
+```dart
+TypeWriterText(
+  text: "Hello World",
+  typingSpeed: Duration(milliseconds: 200),
+  useSingleWord: false,
+  onAnimationFinished: () {
+    print("Animation Finished");
+  },
+);
+```
+
+### **Date Extensions**
+
+**`Format Like Ui Date`**:- No more search for dateformat pattern.
+
+```dart
+String date = "1998-04-29".formatAsUiDate(uiFormat: "29 Dec 1999");
+  // 29 Apr 1998
+```
+
+similar methods
+
+- `timeAgoFromNow`: Converts a date string into a human-readable "time ago" format (e.g., "2 hours ago", "3 days ago")
+
+- `isLeapYear` : Returns true if the year is a leap year, otherwise false
+
+- `calculateAge`: Returns the age in years based on the given date of birth.
+
+- `to24HourTime` : Returns a 24 hour date format
+
+- `to12HourTime` : Returns a 12 hour date format
 
 ### **String Extensions**
 
-- **`amISame`**: Checks if the current string is the same as another string, ignoring case and leading/trailing whitespace.
+- **`isEqualToIgnoreCase`**: Checks if the current string is the same as another string, ignoring case and leading/trailing whitespace.
 
 ```dart
-bool isSame = "test".amISame(to: "TeST"); // true
+bool isSame = "test".isEqualToIgnoreCase(to: "TeST"); // true
 ```
+
+similar methods
 
 - **`displayIfNull`**: Provide a default value for null strings.
+- **`toMapFromEscapedString()`**: Convert an escaped JSON string to a map.
 
-```dart
-String display = null.displayIfNull(displayString: "N/A"); // N/A
+- **`getQueryParameters()`**: Extract query parameters from URLs.
 
-```
+- **`toSentenceCase`**: Convert a string to sentence case.
+- **`toTitleCase`**: Convert a string to title case.
+
+- **`limitCharacters`**: Limit a string to a specified number of characters.
+
+- **`removeAllWhiteSpace`**: Remove all whitespace from a string.
+- **`removeOuterWhiteSpace` (Nullable)**: Remove outer whitespace from a nullable string.
+
+- **`isValidEmail()`**: Validate email format.
+- **`isValidUrl`**: Check if a string is a valid URL.
+- **`isNumericOnly`**: Check if a string consists only of numeric characters.
+- **`isAlphabetOnly`**: Check if a string consists only of alphabetic characters.
+
+- **`toBool()`**: Convert a string to a boolean value.
+- **`toInt()`**: Convert a string to an integer.
+- **`toDouble()`**: Convert a string to a double.
+- **`maskString()`**: Mask parts of a string.
+- **`toCharacterList()`**: Convert a string to a list of characters.
+- **`getListFrom()`**: Convert a string to a list of substrings.
+- **`isNumericOnly`**: Check if a string is numeric.
+- **`isAlphabetOnly`**: Check if a string is alphabetic.
+- **`hasCapitalletter`**: Check if a string contains at least one capital letter.
+- **`readTime()`**: Estimate the reading time in seconds.
+
+- **`limitDecimalPlaces()`**: Limit the number of decimal places in numeric strings.
+
+- **`addOrdinalSuffix`**: Add ordinal suffixes to numeric strings. i.e 21st
+
+- **`isVideo`**: Determine if a string represents a video file.
+- **`isAudio`**: Determine if a string represents an audio file.
+- **`isImage`**: Determine if a string represents an image file.
+
+- **`getFileExtension`** (Nullable): Extract the file extension from a nullable string.
 
 ### **Color Extensions**
 
@@ -95,6 +186,10 @@ String display = null.displayIfNull(displayString: "N/A"); // N/A
 ``` dart
 Color backgroundColor = ColorHelper.fromHex("#aabbcc");
 ```
+
+similar methods:
+
+- **`getRandomShade`**: getRandom shade of given color.
 
 ### **Iterable Extensions**
 
@@ -107,122 +202,7 @@ print(result?.itemIndex); // 1
 print(result?.data); // 2
 ```
 
-### **Map Extensions**
-
-- **`prettyPrint`**: Convert the map to a pretty-printed JSON string.
-characters.
-
-```dart
-    Map<String, dynamic> data = {
-      "name": "John",
-      "email": "john@example.com",
-    };
-
-    print(data.prettyPrint());
-//{
-    //"name": "John",
-    //"email": "john@example.com"
-//}
-```
-
-## **String Extensions**
-
-### Currency Formatting
-
-Format a string as currency:
-
-```dart
-String currency = "1234567.89".formatCurrency(",", "₹", true); // ₹1,234,567.89
-
-String abbreviation = "12345678".toIndianAbbreviatedString(); // 1.23 Cr
-
-```
-
-Similar extensions are:
-
-### Case Conversion
-
-- **`toSentenceCase()`**: Convert a string to sentence case.
-- **`toTitleCase`**: Convert a string to title case.
-
-### Character Limitation
-
-- **`limitCharacters()`**: Limit a string to a specified number of characters.
-
-### Whitespace Management
-
-- **`removeAllWhiteSpace`**: Remove all whitespace from a string.
-- **`removeOuterWhiteSpace` (Nullable)**: Remove outer whitespace from a nullable string.
-
-### Validation
-
-- **`isValidEmail()`**: Validate email format.
-- **`isValidUrl`**: Check if a string is a valid URL.
-- **`isNumericOnly`**: Check if a string consists only of numeric characters.
-- **`isAlphabetOnly`**: Check if a string consists only of alphabetic characters.
-
-### Conversion
-
-- **`toBool()`**: Convert a string to a boolean value.
-- **`toInt()`**: Convert a string to an integer.
-- **`toDouble()`**: Convert a string to a double.
-
-### String Masking
-
-- **`maskString()`**: Mask parts of a string.
-
-### List Conversion
-
-- **`toCharacterList()`**: Convert a string to a list of characters.
-- **`getListFrom()`**: Convert a string to a list of substrings.
-
-### Numeric and Alphabet Checks
-
-- **`isNumericOnly`**: Check if a string is numeric.
-- **`isAlphabetOnly`**: Check if a string is alphabetic.
-- **`hasCapitalletter`**: Check if a string contains at least one capital letter.
-
-### Reading Time Calculation
-
-- **`readTime()`**: Estimate the reading time in seconds.
-
-### Decimal Place Limitation
-
-- **`limitDecimalPlaces()`**: Limit the number of decimal places in numeric strings.
-
-### Ordinal Suffix Addition
-
-- **`addOrdinalSuffix`**: Add ordinal suffixes to numeric strings. i.e 21st
-
-### JSON Conversion
-
-- **`toMapFromEscapedString()`**: Convert an escaped JSON string to a map.
-
-### Query Parameter Extraction
-
-- **`getQueryParameters()`**: Extract query parameters from URLs.
-
-### File Type Checks
-
-- **`isVideo`**: Determine if a string represents a video file.
-- **`isAudio`**: Determine if a string represents an audio file.
-- **`isImage`**: Determine if a string represents an image file.
-
-### File Extension Handling
-
-- **`getFileExtension`** (Nullable): Extract the file extension from a nullable string.
-
-### Color Extensions
-
-Get Random color
-
-```dart
-Color backgroundColor = ColorHelper.getRandomColor();
-```
-
-### Iterable Extensions
-
-Get Element at Index  also supports negative index like python
+- `getElementAt` Get Element at Index  also supports negative index like python
 
 ```dart
 List<int> numbers = [1, 2, 3];
@@ -271,9 +251,25 @@ Similar extensions are:
 
 - **`removeNull`**: Remove null values from an iterable.
 
-### Map Extensions
+### **Map Extensions**
 
-Convert to Escaped JSON
+- **`prettyPrint`**: Convert the map to a pretty-printed JSON string.
+characters.
+
+```dart
+    Map<String, dynamic> data = {
+      "name": "John",
+      "email": "john@example.com",
+    };
+
+    print(data.prettyPrint());
+//{
+    //"name": "John",
+    //"email": "john@example.com"
+//}
+```
+
+- `toEscapedJson`: Convert to Escaped JSON
 
 ```dart
 Map<String, dynamic> data = {
@@ -286,7 +282,7 @@ Map<String, dynamic> data = {
 
 ```
 
-Similar extensions are:
+Similar methods are:
 
 - **`toJsonAndEncode`**: Convert the map to a JSON string and then encode it to Base64.
 - **`containsKey`**: Check if the map contains a specified key.
@@ -315,13 +311,34 @@ Calculate percentage change
 - **`absolute`**: Returns the absolute value of the number.
 - **`toPercentage`**: Converts the number to a percentage string with a specified number of decimal places.
 
+### **Object Extensions**
+
+- **`tryConvertTo`**: Safely converts a value to the desired built-in data type, handling mismatches gracefully on supports build in type .
+
+Example
+
+```dart
+double data = "12344.5".tryConvertTo();
+```
+
 ## Other Extensions
 
 - **`isNull`**: Check if the object is `null`.
 - **`getMemoryAddress`**: Get the memory address of the object.
 - **`whatsMydataType`**: Get the runtime type of the object.
-- **`log`**: Log the object's string representation to the console.
-
+- **`logSuccess`**: Log the object's string representation to the console with green color.
+- **`logFailure`**: Log the object's string representation to the console with red color.
+- **`logWarning`**: Log the object's string representation to the console with yellow color.
 - **`getBytes`**: Retrieves bytes from the `ImageProvider` asynchronously using a specified `BuildContext` and `ImageByteFormat`.
 
 Feel free to post a feature requests or report a bug [here](https://github.com/Oauth-Celestial/ultimate_extension/issues).
+
+# My Other packages
+
+- [zo_animated_border](https://pub.dev/packages/zo_animated_border): A package that provides a modern way to create gradient borders with animation in Flutter
+
+- [connectivity_watcher](https://pub.dev/packages/connectivity_watcher): A Flutter package to monitor internet connectivity with subsecond response times, even on mobile networks.
+
+- [theme_manager_plus](https://pub.dev/packages/theme_manager_plus): Allows customization of your app's theme with your own theme class, eliminating the need for traditional
+- [date_util_plus](https://pub.dev/packages/date_util_plus): A powerful Dart API designed to augment and simplify date and time handling in your Dart projects.
+- [pick_color](https://pub.dev/packages/pick_color): A Flutter package that allows you to extract colors and hex codes from images with a simple touch.

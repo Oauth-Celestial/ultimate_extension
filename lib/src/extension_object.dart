@@ -18,7 +18,7 @@ extension ObjectExtension on Object? {
   }
 
   /// Convert to build in data types
-  /// double data = "12344.5".tryConvertTo<double>();
+  /// double data = "12344.5".tryConvertTo();
   T tryConvertTo<T>() {
     try {
       return this as T;
@@ -36,5 +36,17 @@ extension ObjectExtension on Object? {
         throw UnsupportedError('Cannot cast $this to $T');
       }
     }
+  }
+
+  logError() {
+    UltimateLogger().logError(this);
+  }
+
+  logSuccess() {
+    UltimateLogger().logSuccess(this);
+  }
+
+  logWarning() {
+    UltimateLogger().logWarning(this);
   }
 }
