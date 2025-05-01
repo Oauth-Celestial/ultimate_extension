@@ -1,3 +1,11 @@
+## 1.0.1
+
+### CHANGES
+
+* Fixed SizeProvider widget not getting updated for changing height.
+* Added StopwatchTimer.
+* Fixed Extensions and updated package
+
 ## 1.0.0
 
 ### CHANGES

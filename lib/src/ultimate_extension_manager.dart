@@ -62,6 +62,14 @@ class UltimateExtension {
   void cancelAllThrottle() {
     _throttles.clear();
   }
+
+  Color getRandomColor() {
+    final Random random = Random();
+    final int r = random.nextInt(256);
+    final int g = random.nextInt(256);
+    final int b = random.nextInt(256);
+    return Color.fromARGB(255, r, g, b);
+  }
 }
 
 class ThrottleDataHolder {

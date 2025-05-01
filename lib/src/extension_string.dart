@@ -9,6 +9,13 @@ extension StringHelper on String {
         : "${this[0].toUpperCase()}${substring(1).toLowerCase()}";
   }
 
+  Color fromHexToColor() {
+    final buffer = StringBuffer();
+    if (length == 6 || length == 7) buffer.write('ff');
+    buffer.write(replaceFirst('#', ''));
+    return Color(int.parse(buffer.toString(), radix: 16));
+  }
+
   /// Limit string till specific characters can be used when user names needs to be limited
   /// while displaying
   String limitCharacters(int maxLength, {String overflowCharacter = ""}) {

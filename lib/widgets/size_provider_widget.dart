@@ -1,38 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart' show SchedulerBinding;
 
 class SizeProviderWidget extends StatefulWidget {
-  final Widget Function(BuildContext context, Size size) builder;
+  /// The child widget whose size will be monitored.
+  final Widget child;
 
-  const SizeProviderWidget({super.key, required this.builder});
+  /// The callback function that will be called when the size changes.
+  final Function(Size) onChange;
+
+  const SizeProviderWidget(
+      {required this.onChange, required this.child, super.key});
 
   @override
-  SizeProviderWidgetState createState() => SizeProviderWidgetState();
+  State<SizeProviderWidget> createState() => _SizeProviderWidgetState();
 }
 
-class SizeProviderWidgetState extends State<SizeProviderWidget> {
-  final GlobalKey _key = GlobalKey();
-  Size _size = Size.zero;
+class _SizeProviderWidgetState extends State<SizeProviderWidget> {
+  final sizeKey = GlobalKey();
 
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _updateSize());
-  }
-
-  void _updateSize() {
-    final RenderBox renderBox =
-        _key.currentContext?.findRenderObject() as RenderBox;
-
-    setState(() {
-      _size = renderBox.size;
-    });
-  }
+  Size? oldSize;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      key: _key,
-      child: widget.builder(context, _size),
+    SchedulerBinding.instance.addPostFrameCallback(postFrameCallback);
+    return SizedBox(
+      key: sizeKey,
+      child: widget.child,
     );
+  }
+
+  void postFrameCallback(_) {
+    var context = sizeKey.currentContext;
+    if (context == null) return;
+
+    var newSize = context.size;
+    if (oldSize == newSize || newSize == null) return;
+
+    oldSize = newSize;
+    widget.onChange(newSize);
   }
 }

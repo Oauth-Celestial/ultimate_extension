@@ -8,7 +8,7 @@ class ShimmerWidget extends StatefulWidget {
   final List<Color>? shimmerColors;
   final bool isTransparent; // New flag for transparency
 
-  ShimmerWidget({
+  const ShimmerWidget({
     super.key,
     required this.child,
     this.begin,

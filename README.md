@@ -65,6 +65,43 @@ UltimateExtension().throttle(
     }
 ```
 
+# StopwatchTimer
+
+A simple and lightweight singleton-based Dart utility to measure code execution time with labeled stopwatches.
+
+## Usage
+
+### Measure time
+
+```dart
+StopwatchTimer().start('loadData');
+///   // ... your code ...
+StopwatchTimer().stop('loadData');
+```
+
+⏱️ [load] started...
+
+✅ [load] completed in 500 ms (500483 µs)
+
+### Check elapsed time without stopping
+
+```dart
+final duration = StopwatchTimer().elapsed('loadData');
+print('Elapsed: ${duration?.inMilliseconds} ms');
+```
+
+### Reset a timer
+
+```dart
+StopwatchTimer().reset('loadData');
+```
+
+### Stop all timers
+
+```dart
+StopwatchTimer().stopAll();
+```
+
 ### **Widget Methods**
 
 **`Shimmer`**:- No need for a separate loading widget anymore! Now, you can use the same widget to display a shimmer effect seamlessly.
@@ -336,6 +373,8 @@ Feel free to post a feature requests or report a bug [here](https://github.com/O
 # My Other packages
 
 - [zo_animated_border](https://pub.dev/packages/zo_animated_border): A package that provides a modern way to create gradient borders with animation in Flutter
+
+- [zo_screenshot](https://pub.dev/packages/zo_screenshot): The zo_screenshot plugin helps restrict screenshots and screen recording in Flutter apps, enhancing security and privacy by preventing unauthorized screen captures.
 
 - [connectivity_watcher](https://pub.dev/packages/connectivity_watcher): A Flutter package to monitor internet connectivity with subsecond response times, even on mobile networks.
 

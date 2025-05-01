@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:ultimate_extension/ultimate_extension.dart';
-import 'package:ultimate_extension/widgets/size_provider_widget.dart';
 
 void main() async {
   runApp(MaterialApp(home: ExamplePage()));
@@ -41,8 +40,8 @@ class _ExamplePageState extends State<ExamplePage> {
                   setState(() {});
                 },
                 child: Container(
-                  decoration:
-                      BoxDecoration(color: Colors.red, shape: BoxShape.circle),
+                  decoration: BoxDecoration(
+                      color: Colors.black, shape: BoxShape.circle),
                   width: 100,
                   height: 100,
                 ).shimmer(isLoading: true),
@@ -59,11 +58,18 @@ class _ExamplePageState extends State<ExamplePage> {
                 onAnimationFinished: () {
                   print("Animation Finished");
                 }),
-            Expanded(child: SizeProviderWidget(builder: (context, size) {
-              return Container(
-                child: Text("${size.width} x ${size.height}"),
-              );
-            }))
+            SizedBox(
+              height: 10,
+              width: double.infinity,
+            ),
+            Expanded(
+              child: SizeProviderWidget(
+                onChange: (size) {
+                  print("Size changed: $size");
+                },
+                child: Text("data base is awesome"),
+              ),
+            ),
           ],
         ));
   }
