@@ -1,12 +1,6 @@
 part of '../ultimate_extension.dart';
 
 extension ColorHelper on Color {
-  ///To create a Color object from a hexadecimal string:
-  
-
-  /// To generate a random Color:
-
-
   /// Generates a random shade of the current color.
   Color getRandomShade() {
     final random = Random();

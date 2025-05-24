@@ -4,7 +4,7 @@
 
 # ultimate_extension
 
-Ultimate Extension provides powerful and easy-to-use extensions for Dart collections and objects. This package extends List, Iterable, Map, and Object with a variety of extension methods, including random selection, copying, partitioning, JSON handling, and more. Whether you need enhanced collection utilities or simplified object manipulation, Ultimate Extension makes Dart programming more efficient.
+Powerful and easy-to-use Dart extensions for List, Map, Iterable, and Object.
 
 ### Table of contents
 
@@ -218,14 +218,6 @@ similar methods
 
 ### **Color Extensions**
 
-- **`ColorHelper.fromHex`**: Get Color from hexcode.
-
-``` dart
-Color backgroundColor = ColorHelper.fromHex("#aabbcc");
-```
-
-similar methods:
-
 - **`getRandomShade`**: getRandom shade of given color.
 
 ### **Iterable Extensions**
@@ -363,10 +355,7 @@ double data = "12344.5".tryConvertTo();
 - **`isNull`**: Check if the object is `null`.
 - **`getMemoryAddress`**: Get the memory address of the object.
 - **`whatsMydataType`**: Get the runtime type of the object.
-- **`logSuccess`**: Log the object's string representation to the console with green color.
-- **`logFailure`**: Log the object's string representation to the console with red color.
-- **`logWarning`**: Log the object's string representation to the console with yellow color.
-- **`getBytes`**: Retrieves bytes from the `ImageProvider` asynchronously using a specified `BuildContext` and `ImageByteFormat`.
+- **`log`**: Log the object's string representation to the console with color and emojis.
 
 Feel free to post a feature requests or report a bug [here](https://github.com/Oauth-Celestial/ultimate_extension/issues).
 
@@ -375,6 +364,8 @@ Feel free to post a feature requests or report a bug [here](https://github.com/O
 - [zo_animated_border](https://pub.dev/packages/zo_animated_border): A package that provides a modern way to create gradient borders with animation in Flutter
 
 - [zo_screenshot](https://pub.dev/packages/zo_screenshot): The zo_screenshot plugin helps restrict screenshots and screen recording in Flutter apps, enhancing security and privacy by preventing unauthorized screen captures.
+
+- [zo_collection_animation](https://pub.dev/packages/zo_collection_animation): A lightweight Flutter package to create smooth collect animations for coins carts
 
 - [connectivity_watcher](https://pub.dev/packages/connectivity_watcher): A Flutter package to monitor internet connectivity with subsecond response times, even on mobile networks.
 
