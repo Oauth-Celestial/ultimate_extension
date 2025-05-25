@@ -1,6 +1,6 @@
 name: ultimate_extension
 description: Powerful and easy-to-use Dart extensions for List, Map, Iterable, and Object.
-version: 1.0.1
+version: 1.0.2
 repository: https://github.com/Oauth-Celestial/ultimate_extension
 
 environment:

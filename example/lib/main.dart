@@ -16,8 +16,10 @@ class ExamplePage extends StatefulWidget {
 class _ExamplePageState extends State<ExamplePage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    String date = "01/01/001";
+
+    print(date.formatAsUiDate(uiFormat: "dd/MM/yyyy"));
   }
 
   @override

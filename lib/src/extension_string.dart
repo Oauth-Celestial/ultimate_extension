@@ -10,6 +10,9 @@ extension StringHelper on String {
   }
 
   Color fromHexToColor() {
+    if (!contains("#")) {
+      throw Exception("Invalid Hex Code");
+    }
     final buffer = StringBuffer();
     if (length == 6 || length == 7) buffer.write('ff');
     buffer.write(replaceFirst('#', ''));
@@ -432,10 +435,14 @@ extension DateString on String {
 
   formatAsUiDate(
       {required String uiFormat, String fallBackFormat = "dd-MM-yyyy"}) {
-    String detectedDateFormat = uiFormat.detectDateFormat() ?? fallBackFormat;
-    DateTime date = DateTime.parse(this);
-    DateFormat outputFormat = DateFormat(detectedDateFormat);
-    String result = outputFormat.format(date);
-    return result;
+    try {
+      String detectedDateFormat = uiFormat.detectDateFormat() ?? fallBackFormat;
+      DateTime date = DateTime.parse(this);
+      DateFormat outputFormat = DateFormat(detectedDateFormat);
+      String result = outputFormat.format(date);
+      return result;
+    } catch (e) {
+      rethrow;
+    }
   }
 }

@@ -1,5 +1,5 @@
 [![pub package](https://img.shields.io/pub/v/ultimate_extension.svg)](https://pub.dev/packages/ultimate_extension)
-[![pub points](https://img.shields.io/pub/points/ultimate_extension?color=2E8B57&label=pub%20points)](https://pub.dev/packages/ultimate_extension/score)
+[![pub points](https://img.shields.io/pub/points/ultimate_extension.svg?color=2E8B57&label=pub%20points)](https://pub.dev/packages/ultimate_extension/score)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 
 # ultimate_extension
@@ -10,7 +10,6 @@ Powerful and easy-to-use Dart extensions for List, Map, Iterable, and Object.
 
 - [Getting started](#getting-started)
 - [Most Used Extensions Methods](#most-used-extensions-methods)
-- [Extensions](#extensions)
   - [Widget Methods](#widget-methods)
   - [Date Extensions](#date-extensions)
   - [String Extensions](#string-extensions )
@@ -179,22 +178,16 @@ similar methods
 
 - **`displayIfNull`**: Provide a default value for null strings.
 - **`toMapFromEscapedString()`**: Convert an escaped JSON string to a map.
-
 - **`getQueryParameters()`**: Extract query parameters from URLs.
-
 - **`toSentenceCase`**: Convert a string to sentence case.
 - **`toTitleCase`**: Convert a string to title case.
-
 - **`limitCharacters`**: Limit a string to a specified number of characters.
-
 - **`removeAllWhiteSpace`**: Remove all whitespace from a string.
 - **`removeOuterWhiteSpace` (Nullable)**: Remove outer whitespace from a nullable string.
-
 - **`isValidEmail()`**: Validate email format.
 - **`isValidUrl`**: Check if a string is a valid URL.
 - **`isNumericOnly`**: Check if a string consists only of numeric characters.
 - **`isAlphabetOnly`**: Check if a string consists only of alphabetic characters.
-
 - **`toBool()`**: Convert a string to a boolean value.
 - **`toInt()`**: Convert a string to an integer.
 - **`toDouble()`**: Convert a string to a double.
@@ -205,15 +198,11 @@ similar methods
 - **`isAlphabetOnly`**: Check if a string is alphabetic.
 - **`hasCapitalletter`**: Check if a string contains at least one capital letter.
 - **`readTime()`**: Estimate the reading time in seconds.
-
 - **`limitDecimalPlaces()`**: Limit the number of decimal places in numeric strings.
-
 - **`addOrdinalSuffix`**: Add ordinal suffixes to numeric strings. i.e 21st
-
 - **`isVideo`**: Determine if a string represents a video file.
 - **`isAudio`**: Determine if a string represents an audio file.
 - **`isImage`**: Determine if a string represents an image file.
-
 - **`getFileExtension`** (Nullable): Extract the file extension from a nullable string.
 
 ### **Color Extensions**

@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 class StopwatchTimer {
   StopwatchTimer._internal();
   static final StopwatchTimer _instance = StopwatchTimer._internal();
@@ -7,23 +9,23 @@ class StopwatchTimer {
 
   void start(String label) {
     if (_timers.containsKey(label)) {
-      print('⚠️ [$label] is already running.');
+      debugPrint('⚠️ [$label] is already running.');
       return;
     }
     final stopwatch = Stopwatch()..start();
     _timers[label] = stopwatch;
-    print('⏱️ [$label] started...');
+    debugPrint('⏱️ [$label] started...');
   }
 
   void stop(String label) {
     final stopwatch = _timers[label];
     if (stopwatch == null) {
-      print('❌ [$label] was not started.');
+      debugPrint('❌ [$label] was not started.');
       return;
     }
     stopwatch.stop();
     final time = stopwatch.elapsed;
-    print('✅ [$label] completed in ${time.inMilliseconds} ms '
+    debugPrint('✅ [$label] completed in ${time.inMilliseconds} ms '
         '(${time.inMicroseconds} µs)');
     _timers.remove(label);
   }
@@ -33,7 +35,7 @@ class StopwatchTimer {
   void reset(String label) {
     if (_timers.containsKey(label)) {
       _timers[label]?.reset();
-      print('🔄 [$label] reset.');
+      debugPrint('🔄 [$label] reset.');
     }
   }
 

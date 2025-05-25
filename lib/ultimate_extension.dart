@@ -6,6 +6,7 @@ export 'widgets/type_writer_text.dart';
 
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'dart:math';
 import 'dart:typed_data';

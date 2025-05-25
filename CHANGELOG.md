@@ -1,3 +1,7 @@
+## 1.0.2
+
+* Bug Fixes and added new logger.
+
 ## 1.0.1
 
 ### CHANGES
